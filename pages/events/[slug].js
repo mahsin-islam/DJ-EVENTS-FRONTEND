@@ -1,11 +1,15 @@
-import React from 'react'
+import {useRouter} from 'next/router'
+import Layout from '../../components/Layout'
 
 export default function EventPage() {
+  const router = useRouter()
+  console.log(router)
+
   return (
-    <div>
+    <Layout>
       <h1>My Event Slug</h1>
-      <p>This is an app to find the latest DJ and other musical events.</p>
-      <p>Version: 1.0.0</p>
-    </div>
+      <h3>{router.query.slug}</h3>
+      <button onClick={()=>router.push('/')}>Click</button>
+    </Layout>
   )
 }
